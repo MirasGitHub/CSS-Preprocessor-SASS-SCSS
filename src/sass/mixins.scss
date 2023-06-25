@@ -1,0 +1,66 @@
+@mixin basicStyles() {
+	body {
+		width: 100%;
+		margin: 0 auto;
+		a {
+			text-decoration: none;
+		}
+	}
+	.header__navbar {
+		nav {
+			li {
+				list-style: none;
+			}
+		}
+	}
+}
+
+@mixin resetPageStyle() {
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+}
+
+@mixin containerDisplay() {
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin: 0 auto;
+	}
+}
+
+@mixin fontBasics(
+	$color,
+	$size,
+	$fontFamily,
+	$weight: 400,
+	$fontStyle: normal,
+	$lineHeight,
+	$alignment: center
+) {
+	color: $color;
+	font-size: $size;
+	font-family: $fontFamily;
+	font-weight: $weight;
+	font-style: $fontStyle;
+	letter-spacing: 0.2em;
+	line-height: $lineHeight;
+	text-align: $alignment;
+}
+
+@mixin centeredContainer() {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin btn($radius) {
+	background-color: $btnBackground;
+	border-radius: $radius;
+	border: none;
+}

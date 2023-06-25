@@ -1,0 +1,28 @@
+// ----------ANIMATIONS----------------
+
+@keyframes blinking {
+	0% {
+		background-image: url("../assets/Stars.svg"),
+			url("../assets/Background+Transparent.svg");
+
+		background-size: 97%, cover;
+		background-position: -7px, center;
+	}
+
+	100% {
+		background-size: 103%, cover;
+	}
+}
+
+@keyframes blinkingMobile {
+	0% {
+		background-image: url("../assets/Stars.svg"),
+			url("../assets/Background+Transparent.svg");
+
+		background-size: cover, cover;
+		background-position: 103%, 100%;
+	}
+	100% {
+		background-size: cover, cover;
+	}
+}

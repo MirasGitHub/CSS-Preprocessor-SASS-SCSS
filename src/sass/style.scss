@@ -1,0 +1,347 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./responsive.scss";
+@import "./animations.scss";
+
+@include basicStyles;
+@include resetPageStyle;
+@include containerDisplay;
+
+.container {
+	max-width: $maxWidth;
+}
+
+// -----------------------------HEADER - NAVBAR-----------------
+
+header {
+	margin-top: 45px;
+	margin-left: 152px;
+	.header__navbar {
+		display: flex;
+		justify-content: space-between;
+		width: 650px;
+		align-items: center;
+		.header--humburger-menu {
+			display: none;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.navbar--project {
+			h3 {
+				@include fontBasics(
+					$whiteFont,
+					20px,
+					$themeFont,
+					600,
+					normal,
+					16px,
+					center
+				);
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.header {
+	background-image: url("../assets/Stars.svg"),
+		url("../assets/Background_1\ 1.jpg");
+	background-repeat: no-repeat;
+	background-position: center, center;
+	height: 800px;
+	width: $maxWidth;
+	margin: 0, auto;
+	animation: 2s linear 1s infinite alternate blinking;
+}
+
+ul {
+	display: flex;
+	justify-content: space-between;
+	min-width: 395px;
+	height: 22px;
+	li {
+		&:hover {
+			border-bottom: 2px solid $whiteFont;
+			cursor: pointer;
+		}
+	}
+	a {
+		@include fontBasics($whiteFont, 14px, $themeFont, 400, normal, 16px);
+		text-transform: uppercase;
+	}
+}
+
+.hero {
+	@include centeredContainer();
+	padding-top: 18%;
+	h1 {
+		@include fontBasics(
+			$whiteFont,
+			48px,
+			$headingFont,
+			700,
+			normal,
+			64px,
+			center
+		);
+	}
+	p {
+		@include fontBasics(
+			rgba(255, 255, 255, 0.7),
+			24px,
+			$themeFont,
+			400,
+			normal,
+			32px,
+			center
+		);
+		letter-spacing: 0.2rem;
+	}
+	img {
+		transition: all 0.7s ease-in-out;
+		&:hover {
+			transform: rotateY(180deg) scale(1.5);
+			transition: all 0.7s ease-in-out;
+		}
+	}
+}
+
+// --------------------------------------MAIN SECTION--------------------
+
+.first-section {
+	background-color: $creamBeige;
+	height: 700px;
+	width: $maxWidth;
+	@include centeredContainer();
+	.first-section__content {
+		width: 100%;
+		@include centeredContainer();
+		h2 {
+			@include fontBasics($greyFont, 48px, $headingFont, 700, normal, 64px);
+		}
+		> div {
+			display: flex;
+			justify-content: space-between;
+			width: 900px;
+			p {
+				width: 408px;
+				&:last-of-type {
+					width: 416px;
+				}
+				@include fontBasics(
+					$lightGreyFont,
+					16px,
+					$themeFont,
+					400,
+					normal,
+					22px
+				);
+				letter-spacing: normal;
+				margin-bottom: 30px;
+			}
+		}
+		> p {
+			@include fontBasics($lightGreyFont, 24px, $themeFont, 400, normal, 32px);
+			margin-top: 25px;
+			margin-bottom: 15px;
+			letter-spacing: normal;
+		}
+	}
+}
+
+.btn--read-more {
+	@include btn(18px);
+	@include centeredContainer();
+	width: 115px;
+	height: 36px;
+	transform-origin: 0% 50%;
+	transition: all 0.7s ease-in-out;
+	&:hover {
+		cursor: pointer;
+		transform: rotate(15deg);
+		transition: all 0.7s ease-in-out;
+	}
+	h3 {
+		@include fontBasics($whiteFont, 14px, $headingFont, 400, normal, 26px);
+		text-transform: uppercase;
+	}
+}
+
+// ---------------------Second Section ------------------
+.second-section {
+	background: url("../assets/Learn-more.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 637px;
+}
+
+// -------------FOOTER-------------------------
+
+footer {
+	background-color: $footerBackground;
+	width: $maxWidth;
+	.footer__content {
+		display: grid;
+		grid-template-columns: minmax(150px, max-content) repeat(7, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		width: $maxWidth;
+		height: 199px;
+		padding-top: 39px;
+		padding-left: 70px;
+		.footer__header {
+			display: flex;
+			justify-content: space-between;
+			width: 128px;
+			grid-column: 1 / 2;
+			grid-row: 1 / 2;
+			img {
+				align-self: flex-start;
+			}
+			h3 {
+				@include fontBasics($whiteFont, 18px, $themeFont, 400, normal, 16px);
+				text-transform: uppercase;
+			}
+		}
+		.footer__content--address {
+			grid-column: 3 / 4;
+			grid-row: 1 / 2;
+		}
+		.footer__content--mail {
+			grid-column: 3 / 4;
+			grid-row: 2 / 3;
+		}
+		.footer__content--copyright {
+			grid-column: 6 / 8;
+			grid-row: 2 / 3;
+			padding-left: 15px;
+		}
+		a,
+		i,
+		p {
+			@include fontBasics(
+				rgba(255, 255, 255, 0.618),
+				16px,
+				$themeFont,
+				400,
+				normal,
+				19px
+			);
+			letter-spacing: normal;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.container,
+	main,
+	header,
+	footer {
+		width: 480px;
+	}
+	.navbar {
+		display: none;
+	}
+
+	.header {
+		background: url("../assets/Stars.svg"), url("../assets/Background_1\ 1.jpg");
+		background-repeat: no-repeat;
+		background-position: 100%, 100%;
+		background-size: cover, cover;
+
+		width: 480px;
+		height: 816px;
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		animation: 3s linear 1.4s infinite alternate blinkingMobile;
+	}
+
+	header {
+		.header__navbar {
+			margin-top: -150px;
+			width: 450px;
+			align-items: center;
+			.header--humburger-menu {
+				display: block;
+			}
+		}
+	}
+
+	.header__navbar div {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+	header {
+		margin-top: 45px;
+		margin-left: 15px;
+	}
+
+	.header__navbar {
+		float: row;
+		width: 350px;
+		align-items: center;
+		.header--humburger-menu {
+			display: block;
+		}
+	}
+
+	main h2 {
+		width: 355px;
+		margin-top: 0px;
+		text-align: left;
+	}
+
+	main .first-section {
+		background-color: #eeeeee;
+		height: 990px;
+		width: 480px;
+	}
+
+	.first-section__content > div {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.first-section .second-section__content p:nth-child(3) {
+		margin-top: 0;
+		text-align: left;
+	}
+
+	.first-section .second-section__content {
+		align-items: flex-start;
+		padding-left: 20px;
+		div {
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			width: 480px;
+		}
+	}
+
+	.second-section {
+		background-image: url("../assets/Learn-more.png");
+		background-position: center center;
+		background-repeat: no-repeat;
+		width: 480px;
+		height: 637px;
+	}
+
+	footer {
+		width: 480px;
+		height: 292px;
+		.footer__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: center;
+			width: 480px;
+			height: 210px;
+			padding: 0;
+		}
+	}
+}
